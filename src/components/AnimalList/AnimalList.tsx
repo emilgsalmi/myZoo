@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link, Route, } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { IAnimals } from "../../models/IAnimals";
 import './AnimalsList.scss';
 
@@ -47,7 +47,7 @@ export function Animals () {
                             <h2 className="animalName">{animals.name}</h2>
                             <img className="animalImg" src={animals.imgUrl} alt={animals.name}/>
                             <p className="animalDes">{animals.shortDescription}</p>
-                            <Link key={animals.id} to={"AnimalDetailPage}"}>Läs mer</Link>
+                            <Link  to={"/" + animals.id}>Läs mer</Link>
                             {!animals.isFed &&(
                                 <button className="feed" onClick={() => handleFeedAnimal(animals.id)}>Mata djuret</button>
                             )}
