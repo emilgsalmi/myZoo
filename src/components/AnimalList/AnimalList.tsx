@@ -1,6 +1,5 @@
-import axios from "axios";
 import { useEffect, useState } from "react";
-import { Link, Route } from "react-router-dom";
+import { Link, Route, } from "react-router-dom";
 import { IAnimals } from "../../models/IAnimals";
 import './AnimalsList.scss';
 
@@ -36,8 +35,7 @@ export function Animals () {
     const handleFeedAnimal = (id:number) => {
         setAnimals(prevAnimals =>
             prevAnimals.map (animal => animal.id === id ? {...animal,isFed:true, lastFedTime: new Date()}:animal));
-
-        localStorage.setItem("animals", JSON.stringify(animals))
+            localStorage.setItem("animals", JSON.stringify(animals))
     }
 
     return (
@@ -46,15 +44,15 @@ export function Animals () {
                 <div className="container">
                     {animals.map(animals => (
                         <div key={animals.id}>
-                            <h2>{animals.name}</h2>
-                            <img src={animals.imgUrl} alt={animals.name}/>
-                            <p>{animals.shortDescription}</p>
-                            <Link to={`animals/${animals.id}`}>Läs mer</Link>
+                            <h2 className="animalName">{animals.name}</h2>
+                            <img className="animalImg" src={animals.imgUrl} alt={animals.name}/>
+                            <p className="animalDes">{animals.shortDescription}</p>
+                            <Link key={animals.id} to={"AnimalDetailPage}"}>Läs mer</Link>
                             {!animals.isFed &&(
-                                <button onClick={() => handleFeedAnimal(animals.id)}>Mata djuret</button>
+                                <button className="feed" onClick={() => handleFeedAnimal(animals.id)}>Mata djuret</button>
                             )}
                             {animals.isFed && (
-                                <p>Senast matad {animals.lastFedTime.toLocaleString()}</p>
+                                <p className="fed">Senast matad {animals.lastFedTime.toLocaleString()}</p>
                             )}
                         </div>
                     ))}

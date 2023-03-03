@@ -3,8 +3,7 @@ import { Outlet } from 'react-router-dom';
 
 import './App.scss';
 import { AnimalDetailsPage } from './components/AnimalDetailPage/AnimalDetailPage';
-import { Animals } from './components/AnimalList/AnimalList';
-import { HomePage } from './components/HomePage/HomePage';
+import { Animals } from './components/AnimalList/AnimalList'; 
 
 
 function App() {

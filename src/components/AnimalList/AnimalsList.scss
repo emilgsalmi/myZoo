@@ -1,13 +1,22 @@
 .container{
     display: flex;
-    flex-direction: column;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
     margin:2vh;
 
     div{
-        margin:1vh;
+        width: 200px;
+        border:1px solid black;
+        border-radius: 5px;
+        margin: 10px;
     }
     img{
         height: 12vh;
         width: 12vh;
+    }
+    p{
+        margin: 2px;
+        padding: 5px;
     }
 }
